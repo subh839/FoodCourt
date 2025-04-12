@@ -4,6 +4,7 @@ using FoodCourt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodCourt.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250412071955_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,10 +252,6 @@ namespace FoodCourt.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -275,7 +274,6 @@ namespace FoodCourt.Data.Migrations
                             ProductId = 1,
                             CategoryId = 2,
                             Description = "A delicious mutton taco",
-                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Mutton Taco",
                             Price = 2.50m,
                             Stock = 100
@@ -285,7 +283,6 @@ namespace FoodCourt.Data.Migrations
                             ProductId = 2,
                             CategoryId = 2,
                             Description = "A delicious butter chicken with naan.",
-                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Butter Chicken",
                             Price = 1.99m,
                             Stock = 101
@@ -295,7 +292,6 @@ namespace FoodCourt.Data.Migrations
                             ProductId = 3,
                             CategoryId = 2,
                             Description = "A delicious fish curry",
-                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Fish Curry",
                             Price = 3.99m,
                             Stock = 90
